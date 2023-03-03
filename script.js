@@ -18,7 +18,7 @@ const clear = document.getElementById('clear')
 const back = document.getElementById('back')
 const display = document.getElementById('number')
 
-console.log(display);
+
 function add(a, b) {
     let sum = a + b;
     console.log(sum);
@@ -49,16 +49,36 @@ function operate(operator, a, b) {
         divide(a, b)
     }
 }
+let displayValue = {
+    operatorSign: "",
+    value: "",
+    operandOne: "",
+    operandTwo: "",
+};
+function inputValue(input) {
+    displayValue['operatorSign'] = input
+    displayValue['operandOne'] = displayValue['value'];
+    console.log(displayValue['operatorSign']);
+    console.log(displayValue['operandOne']);
+}
 
 function updateDisplay(input) {
     if (input == '-' || input == '+' 
         || input == 'X' || input == '/') {
         display.textContent = input
+        displayValue['value'] = input;
+    }
+    if (displayValue['value'] == '-' || displayValue['value'] == '+' 
+        || displayValue['value'] == 'X' || displayValue['value'] == '/') {
+        display.textContent = input
+        displayValue['value'] = input;
+    }
+    else {
+        display.textContent += input;   
+        displayValue['value'] += input;
     }
 
-    else {
-    display.textContent += input
-    }
+    console.log(displayValue['value']);
 }
 
 numOne.addEventListener('click', 
@@ -81,14 +101,29 @@ numNine.addEventListener('click',
 () => {updateDisplay(9);});
 numZero.addEventListener('click', 
 () => {updateDisplay(0);});
+
 plusSign.addEventListener('click', 
-() => {updateDisplay('+');});
+() => {
+    inputValue('+');
+    updateDisplay('+');
+});
+
 minusSign.addEventListener('click', 
-() => {updateDisplay('-');});
+() => {
+    inputValue('-');
+    updateDisplay('-');
+});
+
 multiplySign.addEventListener('click', 
-() => {updateDisplay('X');});
+() => {
+    inputValue('*');
+    updateDisplay('X');});
+
 divideSign.addEventListener('click', 
-() => {updateDisplay('/');});
+() => {
+    inputValue('/');
+    updateDisplay('/');});
+
 decimalPoint.addEventListener('click', 
 () => {updateDisplay('.');});
 
