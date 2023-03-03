@@ -1,0 +1,19 @@
+html, body{
+    background-color: black;
+    margin: 0;
+    height: 100%;
+}
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    height: 100%;
+}
+.container{
+    background-color: aqua;
+    height: 600px;
+    width: 400px;
+    border-radius: 20px;
+   
+}
