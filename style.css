@@ -26,6 +26,15 @@ html, body{
     width: 380px;
     background-color: blanchedalmond;
     border-radius: 20px;
+    font-size: 75px;
+    display: flex;
+    justify-content:right;
+    align-items:flex-end;
+
+
+}
+.number{
+    margin-right: 20px;
 }
 .panel{
     height: 400px;
@@ -41,7 +50,12 @@ html, body{
     width: 80px;
     background-color:blanchedalmond;  
     border-radius: 20px;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     
 }
+
 
