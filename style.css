@@ -22,7 +22,7 @@ html, body{
 
 }
 .display{
-    height: 160px;
+    height: 110px;
     width: 380px;
     background-color: blanchedalmond;
     border-radius: 20px;
@@ -30,6 +30,7 @@ html, body{
     display: flex;
     justify-content:right;
     align-items:flex-end;
+    margin-top: 7px;
 
 
 }
@@ -37,12 +38,13 @@ html, body{
     margin-right: 20px;
 }
 .panel{
-    height: 400px;
+    height: 470px;
     width: 380px;
     display: grid;
     grid-template-columns: repeat(4,1fr);
     place-items: center;
     justify-content: space-around;
+    
 
 }
 .button{
@@ -56,6 +58,10 @@ html, body{
     align-items: center;
 
     
+}
+.long{
+    width: 275px;
+    grid-column: 1/4;
 }
 
 
