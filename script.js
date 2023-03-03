@@ -51,8 +51,14 @@ function operate(operator, a, b) {
 }
 
 function updateDisplay(input) {
-    display.textContent = input;
-    
+    if (input == '-' || input == '+' 
+        || input == 'X' || input == '/') {
+        display.textContent = input
+    }
+
+    else {
+    display.textContent += input
+    }
 }
 
 numOne.addEventListener('click', 
@@ -80,7 +86,7 @@ plusSign.addEventListener('click',
 minusSign.addEventListener('click', 
 () => {updateDisplay('-');});
 multiplySign.addEventListener('click', 
-() => {updateDisplay('*');});
+() => {updateDisplay('X');});
 divideSign.addEventListener('click', 
 () => {updateDisplay('/');});
 decimalPoint.addEventListener('click', 
