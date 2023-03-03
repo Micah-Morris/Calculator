@@ -21,7 +21,7 @@ html, body{
     align-items: center;
 
 }
-.display{
+#display{
     height: 110px;
     width: 380px;
     background-color: blanchedalmond;
@@ -31,11 +31,10 @@ html, body{
     justify-content:right;
     align-items:flex-end;
     margin-top: 7px;
-
-
 }
-.number{
-    margin-right: 20px;
+
+#number{
+    margin-right: 30px;
 }
 .panel{
     height: 470px;
