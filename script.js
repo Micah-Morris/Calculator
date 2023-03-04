@@ -36,17 +36,12 @@ function multiply(a, b) {
     displayValue['value'] = sum;
 }
 function divide(a, b) {
-    if (b = 0) {
-        display.textContent = 'SELFDESTRUCT'
-        displayValue['value'] = ''
-    }
-    else {
     let sum = parseInt(a) / parseInt(b);
     sum = Math.round(1000*sum)/1000
     display.textContent = sum;
     displayValue['value'] = sum;
     }
-}
+
 function operate(operator, a, b) {
     if (operator === '+') {
         add(a, b)
