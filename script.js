@@ -20,35 +20,51 @@ const display = document.getElementById('number')
 
 
 function add(a, b) {
-    let sum = a + b;
-    console.log(sum);
+    let sum = parseInt(a) + parseInt(b);
+    display.textContent = sum;
+    displayValue['value'] = sum
 }
+
 function subtract(a, b) {
-    let sum = a -b;
-    console.log(sum);
+    let sum = a - b;
+    display.textContent = sum;
+    displayValue['value'] = sum;
 }
 function multiply(a, b) {
     let sum = a * b;
-    console.log(sum);
+    display.textContent = sum;
+    displayValue['value'] = sum;
 }
 function divide(a, b) {
-    let sum = a / b;
-    console.log(sum);
+    if (b = 0) {
+        display.textContent = 'SELFDESTRUCT'
+        displayValue['value'] = ''
+    }
+    else {
+    let sum = parseInt(a) / parseInt(b);
+    sum = Math.round(1000*sum)/1000
+    display.textContent = sum;
+    displayValue['value'] = sum;
+    }
 }
 function operate(operator, a, b) {
     if (operator === '+') {
         add(a, b)
     }
-    else if (operator === '-'){
+    if (operator === '-'){
         subtract(a, b)
     }
-    else if (operator === '*'){
+    if (operator === '*'){
         multiply(a, b)
     }
-    else if (operator === '/'){
+    if (operator === '/'){
         divide(a, b)
     }
+
 }
+
+
+
 let displayValue = {
     operatorSign: "",
     value: "",
@@ -61,23 +77,32 @@ function inputValue(input) {
     console.log(displayValue['operatorSign']);
     console.log(displayValue['operandOne']);
 }
+function compute() {
+    displayValue['operandTwo'] = displayValue['value'];
+    operate(displayValue['operatorSign'], displayValue['operandOne'], displayValue['operandTwo']);
+
+}
 
 function updateDisplay(input) {
+    if (displayValue['value'] == '-' || displayValue['value'] == '+' 
+    || displayValue['value'] == 'X' || displayValue['value'] == '/') {
+        displayValue['value'] = ''
+        
+    }
     if (input == '-' || input == '+' 
         || input == 'X' || input == '/') {
         display.textContent = input
-        displayValue['value'] = input;
+        displayValue['value'] = input;   
+        
     }
-    if (displayValue['value'] == '-' || displayValue['value'] == '+' 
-        || displayValue['value'] == 'X' || displayValue['value'] == '/') {
-        display.textContent = input
-        displayValue['value'] = input;
-    }
+
     else {
         display.textContent += input;   
         displayValue['value'] += input;
+        
     }
 
+   
     console.log(displayValue['value']);
 }
 
@@ -128,12 +153,17 @@ decimalPoint.addEventListener('click',
 () => {updateDisplay('.');});
 
 
+equalSign.addEventListener('click', 
+() => {
+    compute();
+});
 
+clear.addEventListener('click', 
+() => {
+    display.textContent = '';
+    displayValue['value'] = ''}
+    );
 
-//equalSign.addEventListener('click', () => {updateDisplay(1);});
-
-//clear.addEventListener('click', () => {updateDisplay(1);});
-
-//back.addEventListener('click', () => );
+//back.addEventListener('click', () =>);
 
 
