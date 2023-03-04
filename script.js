@@ -80,7 +80,7 @@ function inputValue(input) {
 function compute() {
     displayValue['operandTwo'] = displayValue['value'];
     operate(displayValue['operatorSign'], displayValue['operandOne'], displayValue['operandTwo']);
-
+    console.log('this is ') + displayValue['value'];
 }
 
 function updateDisplay(input) {
@@ -164,6 +164,15 @@ clear.addEventListener('click',
     displayValue['value'] = ''}
     );
 
-//back.addEventListener('click', () =>);
+back.addEventListener('click', 
+    () =>{
+        let arr = Array.from(displayValue['value']);
+        console.log(arr);
+        arr.pop();
+        let deleted = arr.join("");
+        displayValue['value'] = deleted;
+        display.textContent = deleted;
+    }
+    );
 
 
